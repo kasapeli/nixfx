@@ -10,7 +10,7 @@ git clone git@github:kasapeli/nixfx.git (SSH)
 
 ```bash
 cd nixfx
-sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .#nix
 ```
 
 Do not use the `hardware-configuration.nix` file provided, instead generate your own:
