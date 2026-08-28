@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "sam";
@@ -6,8 +6,15 @@
 
   home.stateVersion = "26.05";
 
+  imports = [
+    ./mod/sway.nix
+    ./mod/helix.nix
+  ];
+
   home.packages = with pkgs; [
     fastfetch
+    foot
+    firefox
   ];
 
   programs.git = {
@@ -18,4 +25,3 @@
 
   programs.home-manager.enable = true;
 }
-
