@@ -6,6 +6,10 @@
         layer = "top";
         position = "top";
 
+        margin-top = 5;
+        margin-left = 5;
+        margin-right = 5;
+
         modules-left = [ "sway/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [

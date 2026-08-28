@@ -19,6 +19,8 @@
     firefox
     monocraft
     maple-mono.NF
+    dysk
+    bat
   ];
 
   fonts.fontconfig.enable = true;
