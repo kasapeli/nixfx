@@ -16,8 +16,8 @@
 
       blur enable
       blur_xray disable
-      blur passes 8
-      blur_radius 8
+      blur_passes 3
+      blur_radius 5
 
       default_dim_inactive 0.15    
     '';
