@@ -7,15 +7,21 @@
   home.stateVersion = "26.05";
 
   imports = [
-    ./mod/sway.nix
-    ./mod/helix.nix
+    ./helix.nix
+    ./sway/waybar.nix
+    ./sway/sway.nix
+    ./fastfetch/fastfetch.nix
   ];
 
   home.packages = with pkgs; [
     fastfetch
     foot
     firefox
+    monocraft
+    maple-mono.NF
   ];
+
+  fonts.fontconfig.enable = true;
 
   programs.git = {
     enable = true;

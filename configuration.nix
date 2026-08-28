@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  # TODO: organize
   imports = [
     ./hardware-configuration.nix
   ];
@@ -9,6 +10,8 @@
     "nix-command"
     "flakes"
   ];
+
+  services.flatpak.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -54,6 +57,25 @@
     pulse.enable = true;
   };
 
+  stylix = {
+    enable = true;
+    image = ./wp/gruvbox-girl.png;
+    polarity = "dark";
+
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+
+    fonts = {
+      monospace = {
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
+      };
+    };
+
+    opacity = {
+      terminal = 0.75;
+    };
+  };
+
   users.users.sam = {
     isNormalUser = true;
     extraGroups = [
@@ -65,6 +87,8 @@
     ];
   };
 
+  users.defaultUserShell = pkgs.fish;
+
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -73,6 +97,12 @@
 
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting    
+    '';
+  };
 
   system.stateVersion = "26.05";
 

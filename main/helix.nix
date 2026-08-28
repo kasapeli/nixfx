@@ -3,9 +3,6 @@
 {
   programs.helix = {
     enable = true;
-    settings = {
-      theme = "tokyonight";
-    };
     languages.language = [
       {
         name = "nix";
