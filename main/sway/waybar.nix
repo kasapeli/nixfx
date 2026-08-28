@@ -38,7 +38,7 @@
         battery = {
           bat = "BAT0";
           interval = 30;
-          format = "{icon} {capacity}% ";
+          format = "{icon}  {capacity}% ";
           format-charging = "{icon} 󱐋 {capacity}% ";
           format-plugged = " Plugged ";
           format-icons = [
