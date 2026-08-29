@@ -21,6 +21,7 @@
     maple-mono.NF
     dysk
     bat
+    prismlauncher
   ];
 
   fonts.fontconfig.enable = true;

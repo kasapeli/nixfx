@@ -16,6 +16,18 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  nix.settings.substituters = [
+    "https://mirror.sjtu.edu.cn/nix-channels/store"
+    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://cache.nixos.org"
+  ];
+
+  services.playit = {
+    enable = true;
+    secretPath = /etc/playit/secret.toml;
+  };
+
   zramSwap = {
     enable = true;
     algorithm = "zstd";
@@ -26,10 +38,10 @@
     enable = true;
     settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_SCALING_GOVERNOR_ON_BAT = "performance";
 
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "performance";
 
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
@@ -47,12 +59,19 @@
 
   time.timeZone = "Asia/Phnom_Penh";
 
+  services.flatpak.enable = true;
   services.xserver.enable = true;
   programs.sway.enable = true;
 
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    loadInNixShell = true;
+    nix-direnv.enable = true;
   };
 
   stylix = {

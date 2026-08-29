@@ -10,6 +10,7 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      playit-nixos-module,
       ...
     }:
     {
@@ -26,6 +28,7 @@
           system = "x86_64-linux";
           modules = [
             stylix.nixosModules.stylix
+            playit-nixos-module.nixosModules.default
             ./configuration.nix
             ./hardware-configuration.nix
 

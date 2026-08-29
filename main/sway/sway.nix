@@ -69,6 +69,8 @@
           "${modifier}+Shift+8" = "move container to workspace number 8";
           "${modifier}+Shift+9" = "move container to workspace number 9";
 
+          "${modifier}+f" = "fullscreen toggle";
+
           "${modifier}+d" = "exec rofi -show drun";
           "Print" = "exec grimshot copy area";
 
